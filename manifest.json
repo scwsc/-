@@ -1,0 +1,31 @@
+{
+    "author": "视界开盒器",
+    "manifest_version": 3,
+    "name": "视界开盒器",
+    "version": "1.0",
+    "description": "解析腾讯视频，爱奇艺，优酷等视频，支持页内播放",
+    "permissions": [
+        "declarativeNetRequest",
+        "declarativeNetRequestFeedback"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "options_page": "index.html",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://v.qq.com/*",
+                "https://www.iqiyi.com/*"
+            ],
+            "js": [
+                "js/jquery-3.7.1.min.js",
+                "js/content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
+}
